@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Drugs</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-searchbar [(ngModel)]="search" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+    </ion-searchbar>    
+    <ion-list>       
+      <ion-item *ngFor="let item of drugs">
+        <h2 wrap-text>{{item.name}}</h2>
+        <button ion-button clear item-end> {{item.quantity}}</button>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>The Avenues Clinic</ion-title>
+  </ion-toolbar>
+</ion-footer>
