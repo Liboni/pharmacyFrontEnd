@@ -16,8 +16,6 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { RegisterPage } from '../pages/register/register';
 import { RegisterPageModule } from '../pages/register/register.module';
 import { HomePage } from '../pages/home/home';
-import { DrugPageModule } from '../pages/drug/drug.module';
-import { DrugPage } from '../pages/drug/drug';
 import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
 import { DrugsPage } from '../pages/drugs/drugs';
 import { DrugsPageModule } from '../pages/drugs/drugs.module';
@@ -27,8 +25,6 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ResetPasswordPageModule } from '../pages/reset-password/reset-password.module';
 import { NotificationsPageModule } from '../pages/notifications/notifications.module';
 import { NotificationsPage } from '../pages/notifications/notifications';
-import { ChangePasswordPage } from '../pages/change-password/change-password';
-import { ChangePasswordPageModule } from '../pages/change-password/change-password.module';
 
 @NgModule({
   declarations: [
@@ -43,12 +39,10 @@ import { ChangePasswordPageModule } from '../pages/change-password/change-passwo
     LoginPageModule, 
     AngularFirestoreModule,
     RegisterPageModule,
-    DrugPageModule,
     DrugsPageModule,
     DrugCatergoryPageModule,
     ResetPasswordPageModule,
     NotificationsPageModule,
-    ChangePasswordPageModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -57,12 +51,10 @@ import { ChangePasswordPageModule } from '../pages/change-password/change-passwo
     LoginPage,
     RegisterPage,
     HomePage,
-    DrugPage,
     DrugsPage,
     DrugCatergoryPage,
     ResetPasswordPage,
-    NotificationsPage,
-    ChangePasswordPage
+    NotificationsPage
   ],
   providers: [
     StatusBar,

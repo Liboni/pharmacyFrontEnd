@@ -38,21 +38,6 @@ export class RegisterPage {
   async onSubmit(userDetails: User) {
     try {
       this.loading = true;
-      // this.afAuth.auth.createUserWithEmailAndPassword(userDetails.email, userDetails.password).then((result) => {
-      //   if (result) {   
-      //     console.log(userDetails.name);
-      //     result.user.displayName = userDetails.name
-      //     console.log(result.user.displayName);
-      //   }
-      // }).catch(function (error) {
-      //   this.loading = false;
-      //   const alert = this.alertCtrl.create({
-      //     title: 'Failed',
-      //     subTitle: error.message,
-      //     buttons: ['OK']
-      //   });
-      //   alert.present();
-      // });
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(userDetails.email, userDetails.password);
       if (result) {
         this.loading = false;

@@ -16,7 +16,7 @@ export class NotificationsPage {
     loading.present();
     this.firebaseService.getNotifications().valueChanges().subscribe(result => {
     loading.dismiss();
-    this.notifications=result;    
+    this.notifications=result.reverse();    
     });
   }
 }
