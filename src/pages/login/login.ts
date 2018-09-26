@@ -18,6 +18,7 @@ export class LoginPage {
   loginForm:FormGroup;
 
   constructor(public formbuilder:FormBuilder,public navCtrl: NavController, public navParams: NavParams,public afAuth:AngularFireAuth,public alertCtrl: AlertController) {
+    this.afAuth.auth.signOut();
     this.loginForm = formbuilder.group({
       email: new FormControl('', Validators.compose([
         Validators.required,

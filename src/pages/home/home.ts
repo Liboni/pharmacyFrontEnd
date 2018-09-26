@@ -13,8 +13,6 @@ export class HomePage {
 
   ionViewWillLoad(){
     this.afAuth.authState.subscribe(data=>{
-      console.log(data);
-      
       if(data &&  data.email && data.uid){
         this.toast.create({
           message:'Welcome to Pharmaceutical Medicine, '+data.email,

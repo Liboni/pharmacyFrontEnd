@@ -30,6 +30,9 @@
         <span *ngIf="registerForm.controls['password'].hasError('required') ">
           <ion-label class="danger">Password is required</ion-label>
         </span>
+        <span *ngIf="registerForm.controls['password'].hasError('minlength') ">
+          <ion-label  text-wrap class="danger">Password must have minimun length of 6 characters</ion-label>
+        </span>
       </div>
       <ion-item>
         <ion-label floating>Confirm Password</ion-label>
@@ -39,7 +42,10 @@
         <span *ngIf="registerForm.controls['confirmPassword'].hasError('required') ">
           <ion-label class="danger">Confirm Password is required</ion-label>
         </span>
-        <span *ngIf="registerForm.controls['confirmPassword'].hasError('checkPasswords') ">
+        <span *ngIf="registerForm.controls['confirmPassword'].hasError('minlength') ">
+          <ion-label text-wrap class="danger">Password must have minimun length of 6 characters</ion-label>
+        </span>
+        <span *ngIf="registerForm.errors?.notsame">
           <ion-label class="danger">Password not match</ion-label>
         </span>
       </div>

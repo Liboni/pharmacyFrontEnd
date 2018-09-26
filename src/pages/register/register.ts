@@ -16,22 +16,23 @@ export class RegisterPage {
   registerForm: FormGroup;
   constructor(public alertCtrl: AlertController, public formbuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, public afAuth: AngularFireAuth) {
     this.registerForm = formbuilder.group({
-      name: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(3)])),
       email: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('[^ @]*@[^ @]*')])),
-      password: new FormControl('', Validators.required),
-      confirmPassword: new FormControl('', Validators.required)
+      password: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(6)])),
+      confirmPassword:new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(6)])),
     },
-      { validator: this.checkPasswords });
+     { validator: this.checkPasswords });
   }
 
   checkPasswords(group: FormGroup) {
     let pass = group.controls.password.value;
     let confirmPass = group.controls.confirmPassword.value;
-    return pass === confirmPass ? null : { notSame: true }
+    return pass === confirmPass ? null : { notsame: true }
   }
 
   async onSubmit(userDetails: User) {
@@ -61,7 +62,8 @@ export class RegisterPage {
           buttons: ['OK']
         });
         alert.present();
-        this.navCtrl.setRoot(LoginPage)
+        this.afAuth.auth.signOut();
+        this.navCtrl.setRoot(LoginPage);
       }
     }
     catch (e) {

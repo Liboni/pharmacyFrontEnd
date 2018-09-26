@@ -24,12 +24,17 @@
     background: #013366;
 }
 .icon-fab{
-    font-size: x-large;
+    font-size: large;
     background-color: #013366;
-    padding: 9px;
     border-radius: 50%;
     color: white;
     margin-bottom: 2em;
+}
+.icon-fab-item {
+    background-color: #013366;
+    border-radius: 50%;
+    color: white;
+    padding: 10px;
 }
 @media only screen and (max-width: 1024px) {
     .card {

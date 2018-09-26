@@ -14,9 +14,9 @@ export class NotificationsPage {
       content: 'Please wait...'
     });      
     loading.present();
-    this.firebaseService.getDrugs().valueChanges().subscribe(result => {
-this.notifications=result;
+    this.firebaseService.getNotifications().valueChanges().subscribe(result => {
+    loading.dismiss();
+    this.notifications=result;    
     });
-
   }
 }
