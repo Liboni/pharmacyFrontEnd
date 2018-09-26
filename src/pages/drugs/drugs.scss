@@ -1,3 +1,14 @@
 page-drugs {
-
+    .instock{
+        background-color: #065006;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    .outstock{
+        background-color: #bb0404;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+    }
 }

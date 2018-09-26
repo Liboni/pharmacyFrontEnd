@@ -23,6 +23,6 @@
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
-<ion-fab bottom right class="icon-fab" (click)="chatPage()" >
-    <ion-icon name="chatbubbles"></ion-icon>
+<ion-fab *ngIf="loggged" bottom right class="icon-fab" (click)="notificationPage()" >
+    <ion-icon name="notifications"></ion-icon>
   </ion-fab>

@@ -25,8 +25,10 @@ import { DrugCatergoryPage } from '../pages/drug-catergory/drug-catergory';
 import { DrugCatergoryPageModule } from '../pages/drug-catergory/drug-catergory.module';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ResetPasswordPageModule } from '../pages/reset-password/reset-password.module';
-import { ChatPage } from '../pages/chat/chat';
-import { ChatPageModule } from '../pages/chat/chat.module';
+import { NotificationsPageModule } from '../pages/notifications/notifications.module';
+import { NotificationsPage } from '../pages/notifications/notifications';
+import { ChangePasswordPage } from '../pages/change-password/change-password';
+import { ChangePasswordPageModule } from '../pages/change-password/change-password.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { ChatPageModule } from '../pages/chat/chat.module';
     DrugsPageModule,
     DrugCatergoryPageModule,
     ResetPasswordPageModule,
-    ChatPageModule,
+    NotificationsPageModule,
+    ChangePasswordPageModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -58,7 +61,8 @@ import { ChatPageModule } from '../pages/chat/chat.module';
     DrugsPage,
     DrugCatergoryPage,
     ResetPasswordPage,
-    ChatPage
+    NotificationsPage,
+    ChangePasswordPage
   ],
   providers: [
     StatusBar,

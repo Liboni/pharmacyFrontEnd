@@ -6,27 +6,40 @@
 
 <ion-content padding>
   <div class="center-content">
-      <ion-item class="center">
-          <img class="smaller-img" src="assets/imgs/logo.png" />
-        </ion-item>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-          <ion-item>
-            <ion-label floating>Email Address</ion-label>
-            <ion-input type="text" formControlName="email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password" formControlName="password"></ion-input>
-          </ion-item>
-          <button class="main-color" ion-button full [disabled]="!loginForm.valid">
-            Sign In<ion-spinner *ngIf="loading" name="bubbles"></ion-spinner>
-          </button>
-          <button ion-button block clear (click)="register()">
-              No have an account? Register Now
-            </button>
-            <button ion-button block clear (click)="resetPwd()">
-              Forgot Password
-            </button>          
-        </form>
-  </div>  
+    <ion-item class="center">
+      <img class="smaller-img" src="assets/imgs/logo.png" />
+    </ion-item>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+      <ion-item>
+        <ion-label floating>Email Address</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>       
+      </ion-item>
+      <div *ngIf="loginForm.controls['email'].touched && !loginForm.controls['email'].valid">
+        <span *ngIf="loginForm.controls['email'].hasError('required') ">
+          <ion-label class="danger">Email is required</ion-label>
+        </span>
+        <span *ngIf="loginForm.controls['email'].hasError('pattern') ">
+          <ion-label class="danger">Email wrong format</ion-label>
+        </span>
+      </div> 
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div *ngIf="loginForm.controls['password'].touched && !loginForm.controls['password'].valid">
+        <span *ngIf="loginForm.controls['password'].hasError('required') ">
+          <ion-label class="danger">Password is required</ion-label>
+        </span>      
+      </div>   
+      <button class="main-color" ion-button full [disabled]="!loginForm.valid">
+        Sign In<ion-spinner *ngIf="loading" name="bubbles"></ion-spinner>
+      </button>
+    </form>
+    <button ion-button block clear (click)="register()">
+      No have an account? Register Now
+    </button>
+    <button ion-button block clear (click)="resetPwd()">
+      Forgot Password
+    </button>
+  </div>
 </ion-content>

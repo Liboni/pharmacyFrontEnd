@@ -11,21 +11,38 @@
     </ion-item>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
       <ion-item>
-        <ion-label floating>Full Name</ion-label>
-        <ion-input type="text" formControlName="name"></ion-input>
-      </ion-item>
-      <ion-item>
         <ion-label floating>Email Address</ion-label>
         <ion-input type="text" formControlName="email"></ion-input>
       </ion-item>
+      <div *ngIf="registerForm.controls['email'].touched && !registerForm.controls['email'].valid">
+        <span *ngIf="registerForm.controls['email'].hasError('required') ">
+          <ion-label class="danger">Email is required</ion-label>
+        </span>
+        <span *ngIf="registerForm.controls['email'].hasError('pattern') ">
+          <ion-label class="danger">Email wrong format</ion-label>
+        </span>
+      </div>
       <ion-item>
         <ion-label floating>Password</ion-label>
         <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
+      <div *ngIf="registerForm.controls['password'].touched && !registerForm.controls['password'].valid">
+        <span *ngIf="registerForm.controls['password'].hasError('required') ">
+          <ion-label class="danger">Password is required</ion-label>
+        </span>
+      </div>
       <ion-item>
         <ion-label floating>Confirm Password</ion-label>
         <ion-input type="password" formControlName="confirmPassword"></ion-input>
       </ion-item>
+      <div *ngIf="registerForm.controls['confirmPassword'].touched && !registerForm.controls['confirmPassword'].valid">
+        <span *ngIf="registerForm.controls['confirmPassword'].hasError('required') ">
+          <ion-label class="danger">Confirm Password is required</ion-label>
+        </span>
+        <span *ngIf="registerForm.controls['confirmPassword'].hasError('checkPasswords') ">
+          <ion-label class="danger">Password not match</ion-label>
+        </span>
+      </div>
       <button class="main-color" default ion-button full [disabled]="!registerForm.valid">
         Sign Up<ion-spinner *ngIf="loading" name="bubbles"></ion-spinner>
       </button>

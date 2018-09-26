@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Notifications</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card  text-wrap *ngFor="let item of notifications">
+    <ion-card-content>
+     {{item.text}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

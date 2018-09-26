@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { DrugCatergoryPage } from '../pages/drug-catergory/drug-catergory';
 import { LoginPage } from '../pages/login/login';
 import { DrugsPage } from '../pages/drugs/drugs';
-import { ChatPage } from '../pages/chat/chat';
+import { NotificationsPage } from '../pages/notifications/notifications';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,15 +18,17 @@ export class MyApp {
   rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any, icon:any}>;
-
+  loggged:Boolean = false;
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public afAuth:AngularFireAuth) {
     this.initializeApp();
     this.afAuth.authState.subscribe(data=>{     
         if(data &&  data.email && data.uid){
           this.rootPage = HomePage;
+          this.loggged = true;
         }
         else{
           this.rootPage = LoginPage;
+          this.loggged = true;
         }  
     });
     this.pages = [
@@ -48,7 +50,7 @@ export class MyApp {
   openPage(page) {    
     this.nav.setRoot(page.component);
   }
-  chatPage(){
-    this.nav.push(ChatPage);
+  notificationPage(){
+    this.nav.push(NotificationsPage);
   }
 }

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
 import { LoginPage } from '../login/login';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ChangePasswordPage } from '../change-password/change-password';
 
 @IonicPage()
 @Component({
@@ -21,11 +22,11 @@ export class ResetPasswordPage {
   }
 
   resetPwd() {
-    if (!this.resetForm.valid){
-      console.log(this.resetForm.value);
-    } else {
+    try{
       this.afAuth.auth.sendPasswordResetEmail(this.resetForm.value.email).then( result => {
-        this.navCtrl.setRoot(LoginPage);
+        if(result){        
+        this.navCtrl.setRoot(ChangePasswordPage);
+        }
       }, error => {    
           let alert = this.alertCtrl.create({
             message: error.message,
@@ -37,8 +38,19 @@ export class ResetPasswordPage {
             ]
           });
           alert.present();
-        });   
-    }
+        }); 
+      } catch(e){
+        this.loading=false;
+        const alert = this.alertCtrl.create({
+          title: 'Failed',
+          subTitle: e.message,
+          buttons: ['OK']
+        });
+        alert.present();
+      }
   }
 
+  changePassword(){
+    this.navCtrl.push(ChangePasswordPage);
+  }
 }

@@ -25,6 +25,7 @@ export class LoginPage {
       password: new FormControl('', Validators.required)
    });
   }
+  
   async onSubmit(user:User){  
     try{
       this.loading=true;

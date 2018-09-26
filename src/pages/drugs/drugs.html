@@ -12,9 +12,12 @@
     <ion-searchbar [(ngModel)]="search" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
     </ion-searchbar>    
     <ion-list>       
-      <ion-item *ngFor="let item of drugs">
-        <h2 wrap-text>{{item.name}}</h2>
-        <button ion-button clear item-end> {{item.quantity}}</button>
+      <ion-item text-wrap *ngFor="let item of drugs">
+        <h2 >{{item.name}}</h2>
+        <button ion-button clear item-end>
+          <ion-icon class="instock" *ngIf="item.instock" name="checkmark" item-end>In Stock</ion-icon>
+          <ion-icon class="outstock" *ngIf="!item.instock" name="close" item-end>Out Of Stock</ion-icon>
+        </button>
       </ion-item>
     </ion-list>
   </ion-card>
