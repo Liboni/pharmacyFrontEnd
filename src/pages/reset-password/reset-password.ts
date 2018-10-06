@@ -12,7 +12,12 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class ResetPasswordPage {
   loading:boolean=false;
   resetForm:FormGroup;
+  title:any="Reset Password"
   constructor(public afAuth:AngularFireAuth, public alertCtrl: AlertController,public formbuilder:FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
+    if(navParams.get('data')==='Change Password'){
+      this.title=navParams.get('data');
+    }
+
     this.resetForm = formbuilder.group({
       email: new FormControl('', Validators.compose([
         Validators.required,
@@ -29,7 +34,7 @@ export class ResetPasswordPage {
             buttons: ['OK']
           });
           alert.present();
-          this.afAuth.auth.signOut();
+        this.afAuth.auth.signOut();
         this.navCtrl.setRoot(LoginPage);        
       } catch(e){
         this.loading=false;

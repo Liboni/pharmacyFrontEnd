@@ -17,7 +17,7 @@ export class HomePage {
         this.toast.create({
           message:'Welcome to Pharmaceutical Medicine, '+data.email,
           duration:3000
-        }).present();
+        }).present();       
       }
       else{
         this.toast.create({

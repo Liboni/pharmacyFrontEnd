@@ -13,9 +13,12 @@
       <button  menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon [name]="p.icon" item-start></ion-icon> {{p.title}}
       </button>
+      <button  menuClose ion-item  (click)="changePassword()">
+        <ion-icon name="lock" item-start></ion-icon> Change Password
+    </button>
       <button  menuClose ion-item  (click)="signOut()">
           <ion-icon name="power" item-start></ion-icon> Sign Out
-        </button>
+      </button>
     </ion-list>   
   </ion-content>
 

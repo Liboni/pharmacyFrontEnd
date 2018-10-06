@@ -25,6 +25,10 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ResetPasswordPageModule } from '../pages/reset-password/reset-password.module';
 import { NotificationsPageModule } from '../pages/notifications/notifications.module';
 import { NotificationsPage } from '../pages/notifications/notifications';
+import { FaqPageModule } from '../pages/faq/faq.module';
+import { AboutUsPageModule } from '../pages/about-us/about-us.module';
+import { FaqPage } from '../pages/faq/faq';
+import { AboutUsPage } from '../pages/about-us/about-us';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,8 @@ import { NotificationsPage } from '../pages/notifications/notifications';
     DrugCatergoryPageModule,
     ResetPasswordPageModule,
     NotificationsPageModule,
+    FaqPageModule,
+    AboutUsPageModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -54,7 +60,9 @@ import { NotificationsPage } from '../pages/notifications/notifications';
     DrugsPage,
     DrugCatergoryPage,
     ResetPasswordPage,
-    NotificationsPage
+    NotificationsPage,
+    FaqPage,
+    AboutUsPage
   ],
   providers: [
     StatusBar,
