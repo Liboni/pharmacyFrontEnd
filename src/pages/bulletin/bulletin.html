@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Bulletin</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let item of items">
+    <ion-item>
+      <ion-avatar item-start>
+        <img *ngIf="item.ImageURL != ''" src="{{item.ImageURL}}">
+      </ion-avatar>
+      <h2>{{item.Title}}</h2>
+      <p>{{item.DateCreated}}</p>
+    </ion-item>  
+    <img *ngIf="item.ImageURL != ''" src="{{item.ImageURL}}">
+    <ion-card-content>
+      <p>{{item.Content}}</p>
+    </ion-card-content>   
+  </ion-card>
+</ion-content>

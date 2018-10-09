@@ -12,6 +12,7 @@ import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { FaqPage } from '../pages/faq/faq';
 import { AboutUsPage } from '../pages/about-us/about-us';
+import { BulletinPage } from '../pages/bulletin/bulletin';
 
 @Component({
   templateUrl: 'app.html'
@@ -41,7 +42,8 @@ export class MyApp {
       { title: 'Search', component: DrugsPage,icon:"medkit" },
       { title: 'Category', component: DrugCatergoryPage,icon:"apps" },
       { title: 'About Us', component: AboutUsPage,icon:"information-circle" },
-      { title: 'FAQ', component: FaqPage,icon:"help" }
+      { title: 'FAQ', component: FaqPage,icon:"help" },
+      { title: 'Bulletin', component: BulletinPage,icon:"book" }
     ];
   }
 

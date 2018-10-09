@@ -12,7 +12,8 @@ export class DrugsPage {
   storedrugs: any;
   search: any;
   loading:boolean = true;
-  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseServiceProvider) {
+  constructor(public loadingCtrl: LoadingController,
+    public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseServiceProvider) {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });

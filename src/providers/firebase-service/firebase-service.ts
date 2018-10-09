@@ -6,29 +6,40 @@ export class FirebaseServiceProvider {
   constructor(public db: AngularFireDatabase) {
   }
 
- sendFeedback(username, message, datecreated){  
-  this.db.list('/feedback/').push({
-    username: username,
-    message: message,
-    datecreated:datecreated
-  }); 
- }
-  getDrugCatergory() {
-      return this.db.list('/drug-catergory/');
+  sendFeedback(username, message, datecreated) {
+    this.db.list('/feedback/').push({
+      username: username,
+      message: message,
+      datecreated: datecreated
+    });
   }
+
+  getBulletins():any{
+    return this.db.list('/bulletin/');
+  }
+
+  getUsers():any{
+    return this.db.list('/users/');
+  }
+
+  getDrugCatergory() {
+    return this.db.list('/drug-catergory/');
+  }
+
   getDrugSubCatergory(catergoryId) {
     return this.db.list('/drug-catergory/drugSubCatergory/' + catergoryId);
   }
+
   getDrugList(subCatergoryId) {
     return this.db.list('/drug-catergory/drugSubCatergory/drug/' + subCatergoryId);
   }
 
   getDrugs() {
-      return this.db.list('drugs');
-  } 
+    return this.db.list('drugs');
+  }
 
   getNotifications() {
     return this.db.list('notifications');
-} 
+  }
 
 }

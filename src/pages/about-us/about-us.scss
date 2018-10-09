@@ -4,10 +4,10 @@ page-about-us {
         padding: 0 !important;
     }
    .top-image{
-        background-image: url(/assets/imgs/baines-avenue-clinic.jpg);
+        background-image: url(/assets/imgs/background.jpg);
         background-repeat: no-repeat;
         background-size: cover;
-        height: 50%;
+        height: 30%;
    }
    .layer {
         background-color: rgba(50, 50, 50, 0.7);
@@ -17,10 +17,17 @@ page-about-us {
         width: 100%;
         height: 100%;
    }
+   .main-heading {
+     padding-top: 3em;
+    }
     .underline{
         border-bottom: 10px solid #F0F0E9;
     }
     .lower{
         margin-top: 1.5em !important;
+    }
+    .head-li{
+        list-style: none;
+        font-weight: 700;
     }
 }

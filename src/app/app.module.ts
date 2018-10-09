@@ -29,6 +29,8 @@ import { FaqPageModule } from '../pages/faq/faq.module';
 import { AboutUsPageModule } from '../pages/about-us/about-us.module';
 import { FaqPage } from '../pages/faq/faq';
 import { AboutUsPage } from '../pages/about-us/about-us';
+import { BulletinPageModule } from '../pages/bulletin/bulletin.module';
+import { BulletinPage } from '../pages/bulletin/bulletin';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { AboutUsPage } from '../pages/about-us/about-us';
     NotificationsPageModule,
     FaqPageModule,
     AboutUsPageModule,
+    BulletinPageModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -62,13 +65,14 @@ import { AboutUsPage } from '../pages/about-us/about-us';
     ResetPasswordPage,
     NotificationsPage,
     FaqPage,
-    AboutUsPage
+    AboutUsPage,
+    BulletinPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     FirebaseServiceProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}    
+    {provide: ErrorHandler, useClass: IonicErrorHandler}        
   ]
 })
 export class AppModule {}
