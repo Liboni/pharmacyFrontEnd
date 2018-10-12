@@ -14,7 +14,7 @@ export class BulletinPage {
 
   ionViewDidLoad() {
     this.firebaseService.getBulletins().valueChanges().subscribe(result => {
-        this.items=result;
+        this.items=result;                
     },error=>{
       console.log(error);
     });

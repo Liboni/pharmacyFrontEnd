@@ -9,10 +9,10 @@
 
 <ion-content padding>
   <h2 class="center" text-wrap>Frequently Asked Questions</h2>
-  <ion-list inset>
-    <ion-item *ngFor="let item of items; let i of index" *ngIf="showMore(i)">
+  <ion-list>
+    <ion-item text-wrap *ngFor="let item of items; let i of index" >
       {{ item.name }}
-      <ion-icon name="arrow-dropdown" item-end></ion-icon>
+      <ion-icon (click)="showMore(i)" name="arrow-dropdown" item-end></ion-icon>
       <p *ngIf="i==content">  {{ item.content }}</p>
     </ion-item>
   </ion-list>

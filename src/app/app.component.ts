@@ -41,7 +41,7 @@ export class MyApp {
       { title: 'Home', component: HomePage,icon:"home" },
       { title: 'Search', component: DrugsPage,icon:"medkit" },
       { title: 'Category', component: DrugCatergoryPage,icon:"apps" },
-      { title: 'About Us', component: AboutUsPage,icon:"information-circle" },
+      { title: 'Contact', component: AboutUsPage,icon:"contact" },
       { title: 'FAQ', component: FaqPage,icon:"help" },
       { title: 'Bulletin', component: BulletinPage,icon:"book" }
     ];
