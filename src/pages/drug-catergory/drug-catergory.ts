@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, LoadingController } from 'ionic-angular';
 import { FirebaseServiceProvider } from '../../providers/firebase-service/firebase-service';
-import { DrugsPage } from '../drugs/drugs';
+import { DrugSubCategoryPage } from '../drug-sub-category/drug-sub-category';
 
 @IonicPage()
 @Component({
@@ -24,7 +24,7 @@ export class DrugCatergoryPage {
   }
 
   itemTapped(item) {   
-    this.navCtrl.push(DrugsPage, {
+    this.navCtrl.push(DrugSubCategoryPage, {
       item: item
     });
   }

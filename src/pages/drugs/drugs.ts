@@ -21,10 +21,17 @@ export class DrugsPage {
     loading.present();
     this.firebaseService.getDrugs().valueChanges().subscribe(result => {
       loading.dismiss();
-      if (navParams.get("item")) {
+      if (navParams.get("category")) {
         this.storedrugs = result;
         this.drugs = this.storedrugs.filter((item) => {
-          return item.catergory === navParams.get("item").name.toString();
+          return item.catergory === navParams.get("category");
+        });
+        this.storedrugs = this.drugs;
+      }
+      else if (navParams.get("item")) {
+        this.storedrugs = result;
+        this.drugs = this.storedrugs.filter((item) => {
+          return item.subsatergory === navParams.get("item");
         });
         this.storedrugs = this.drugs;
       }

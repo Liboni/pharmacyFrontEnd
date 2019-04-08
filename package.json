@@ -1,5 +1,5 @@
 {
-  "name": "Pharmacy Medicine List",
+  "name": "avenues-pharmacy",
   "version": "0.0.1",
   "author": "Shirishanu",
   "homepage": "http://ionicframework.com/",
@@ -26,10 +26,12 @@
     "@ionic/pro": "2.0.3",
     "@ionic/storage": "2.1.3",
     "angularfire2": "^5.0.1",
-    "cordova-android": "7.0.0",
+    "cordova-android": "^7.1.1",
+    "cordova-browser": "5.0.4",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^2.1.4",
+    "cordova-plugin-prevent-screenshot": "^1.0.3",
     "cordova-plugin-splashscreen": "git+https://github.com/apache/cordova-plugin-splashscreen.git",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
@@ -60,7 +62,8 @@
       "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "browser"
     ]
   }
 }

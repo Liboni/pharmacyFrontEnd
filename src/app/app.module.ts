@@ -31,6 +31,10 @@ import { FaqPage } from '../pages/faq/faq';
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { BulletinPageModule } from '../pages/bulletin/bulletin.module';
 import { BulletinPage } from '../pages/bulletin/bulletin';
+import { FeedbackPageModule } from '../pages/feedback/feedback.module';
+import { FeedbackPage } from '../pages/feedback/feedback';
+import { DrugSubCategoryPage } from '../pages/drug-sub-category/drug-sub-category';
+import { DrugSubCategoryPageModule } from '../pages/drug-sub-category/drug-sub-category.module';
 
 @NgModule({
   declarations: [
@@ -52,6 +56,8 @@ import { BulletinPage } from '../pages/bulletin/bulletin';
     FaqPageModule,
     AboutUsPageModule,
     BulletinPageModule,
+    FeedbackPageModule,
+    DrugSubCategoryPageModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -66,7 +72,9 @@ import { BulletinPage } from '../pages/bulletin/bulletin';
     NotificationsPage,
     FaqPage,
     AboutUsPage,
-    BulletinPage
+    BulletinPage,
+    FeedbackPage,
+    DrugSubCategoryPage
   ],
   providers: [
     StatusBar,

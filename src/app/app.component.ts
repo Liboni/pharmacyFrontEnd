@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, AlertController, ToastController } from 'ionic-angular';
+import { Nav, Platform, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -13,6 +13,7 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { FaqPage } from '../pages/faq/faq';
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { BulletinPage } from '../pages/bulletin/bulletin';
+import { FeedbackPage } from '../pages/feedback/feedback';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,7 +25,7 @@ export class MyApp {
   username:String="";
   pages: Array<{title: string, component: any, icon:any}>;
   loggged:Boolean = false;
-  constructor(private toast:ToastController,public firebaseService: FirebaseServiceProvider, public alertCtrl: AlertController,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public afAuth:AngularFireAuth) {
+  constructor(public firebaseService: FirebaseServiceProvider, public alertCtrl: AlertController,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public afAuth:AngularFireAuth) {
     this.initializeApp();
     this.afAuth.authState.subscribe(data=>{     
         if(data &&  data.email && data.uid){
@@ -47,14 +48,16 @@ export class MyApp {
     ];
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {    
+  initializeApp() {    
+     this.platform.ready().then(() => {    
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
+
   signOut(){
     this.afAuth.auth.signOut();
+    this.firebaseService.signOut();      
     this.nav.setRoot(LoginPage);
     this.loggged = false;
   }
@@ -72,36 +75,6 @@ export class MyApp {
   }
 
   feedbackPage(){
-    let alert = this.alertCtrl.create({
-      title: 'Feedback',
-      inputs: [
-        {
-          name: 'message',
-          placeholder: 'Message'
-        },       
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: data => {           
-          }
-        },
-        {
-          text: 'Send',
-          handler: data => {
-            let datetime = new Date();
-            var day =datetime.getDate()+"-"+datetime.getMonth()+"-"+datetime.getFullYear()+ " "+ datetime.getHours()+":"+datetime.getMinutes()+":"+datetime.getMilliseconds();
-            this.firebaseService.sendFeedback(this.username, data.message,day);   
-            this.toast.create({
-              message:'Thank you for your feedback.',
-              duration:3000
-            }).present();         
-          }
-        }
-      ]
-    });
-    alert.present();
+   this.nav.push(FeedbackPage);   
   }
-  
 }

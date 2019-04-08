@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Categories</ion-title>
+    <ion-title>Sub Categories</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,8 +12,8 @@
     <ion-searchbar [(ngModel)]="search" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
     </ion-searchbar>
     <ion-list>
-      <button  text-wrap ion-item *ngFor="let item of drugCatergories">
-        {{item.name}}
+      <button  text-wrap ion-item *ngFor="let item of drugs">
+        {{item}}
         <button ion-button clear item-end (click)="itemTapped(item)">View</button>
       </button>
     </ion-list>

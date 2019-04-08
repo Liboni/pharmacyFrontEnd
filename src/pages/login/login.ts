@@ -20,7 +20,12 @@ export class LoginPage {
 
   constructor(public firebaseService: FirebaseServiceProvider,
     public formbuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, public afAuth: AngularFireAuth, public alertCtrl: AlertController) {
+   if(this.firebaseService.getUsername()){
+    this.navCtrl.setRoot(HomePage)
+   }
+   else{
     this.afAuth.auth.signOut();
+   }  
     this.loginForm = formbuilder.group({
       email: new FormControl('', Validators.compose([
         Validators.required,
@@ -35,14 +40,16 @@ export class LoginPage {
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if (result) {
         this.firebaseService.getUsers().valueChanges().subscribe(response => {
-          const index: number = response.indexOf(response.filter(res => res.UID==result.user.uid)[0])
+          const index: number = response.indexOf(response.filter(res => res.UID==result.user.uid)[0])        
          if(index<0){
           this.alertCtrl.create({
             title: 'Failed',
             subTitle: "Your account was deactivated",
             buttons: ['OK']
           }).present();
-         } else{            
+         } else{    
+          this.firebaseService.saveName(response[index].Fullname);              
+          this.firebaseService.saveUsername(result.user.email);              
             this.loading = false;
             this.navCtrl.setRoot(HomePage)
           }        

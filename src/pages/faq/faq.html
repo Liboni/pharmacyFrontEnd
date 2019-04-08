@@ -12,7 +12,7 @@
   <ion-list>
     <ion-item text-wrap *ngFor="let item of items; let i of index" >
       {{ item.name }}
-      <ion-icon (click)="showMore(i)" name="arrow-dropdown" item-end></ion-icon>
+      <ion-icon padding-bottom (click)="showMore(i)" name="arrow-dropdown" item-end></ion-icon>
       <p *ngIf="i==content">  {{ item.content }}</p>
     </ion-item>
   </ion-list>
